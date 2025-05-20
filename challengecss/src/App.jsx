@@ -1,35 +1,25 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css"
+import React, {useState} from "react"
+import Car from "./components/Car"
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+
+  const Details = [
+    {name: "fusca", km: 199999, color: "black"},
+    {name: "celta", km: 10000, color: "silver"},
+    {name: "polo", km: 0, color: "white"},
+  ];
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div>
+      <h1>Detalhes dos carros</h1>
+      <div className="car-container">
+        {Details.map((car) => (
+          <Car car={car}/>
+        ))}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
   )
-}
+};
 
-export default App
+export default App;
